@@ -1,10 +1,27 @@
+
 Rails.application.routes.draw do
+
+
   get 'welcome/index'
 
   get 'welcome/about'
 
-  devise_for :users
-  root to: 'welcome#index'
+  devise_for :users, :controllers => {:registrations => "devise/registrations"} do
+    get '/register' => 'devise/registrations#new', :as => :new_user_registration
+  end
+
+  resources :users do
+     resources :items, only: [:create,:destroy, :index]
+
+
+  end
+
+   root :to => 'welcome#index'
+
+
+
+  #  , :constraints => lambda{|req| !req.session[:user_id].blank?}
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

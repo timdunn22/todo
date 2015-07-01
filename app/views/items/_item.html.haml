@@ -1,0 +1,5 @@
+
+%tr{id: "item-#{item.id}"}
+  %td= item.name
+  %td= item.days_left
+  %td= link_to "Delete", [item.user, item], method: :delete, remote: true

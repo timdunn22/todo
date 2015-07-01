@@ -8,6 +8,8 @@ group :production do
   #  gem 'pg'
    gem 'rails_12factor'
  end
+
+gem 'whenever', :require => false
 #add bootstrap gem
 gem 'figaro', '1.0'
 gem 'responders'
@@ -15,23 +17,29 @@ gem 'bootstrap-sass'
 gem 'newrelic_rpm'
 gem 'puma'
 gem 'factory_girl_rails', '~> 4.0'
+
  group :development do
    gem 'sqlite3'
  end
+
  #adding rails erd
  group :development do
   gem "rails-erd"
 end
+
 group :development do
   gem "binding_of_caller"
 end
+
 group :development do
   gem "better_errors"
 end
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'capybara'
 end
+
 gem 'faker'
 gem 'devise', '~> 3.4.0'
 #adding pry rails
@@ -62,6 +70,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'haml-rails'
+gem 'haml-lint'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,0 +1,13 @@
+= form_for [user,item], remote: true do |f|
+  - if item.errors.any?
+    .alert.alert-danger
+      %h4
+        There are #{pluralize(item.errors.count, "error")}.
+      %ul
+        - item.errors.full_messages.each do |msg|
+          %li= msg
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control', placeholder: "Enter todo item"
+  .form-group
+    = f.submit "Create a todo item", class: 'btn btn-success'
