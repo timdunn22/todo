@@ -3,3 +3,4 @@
  <% else %>
    $('.new-item').html("<%= escape_javascript(render partial: 'items/form', locals: { user: @user, item: @item }) %>");
  <% end %>
+)
